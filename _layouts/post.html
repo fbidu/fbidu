@@ -7,28 +7,6 @@
           <div class="article">
             <div class="card">
               <h1><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h1>
-              <div>
-                {% if page.layout != 'home' %}
-                {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
-                {% if posts.size == 0 %}
-                {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
-                {% endif %}
-                {% if posts.size > 1 %}
-                <div class="lang-options">
-                  <em>{{ site.data.translations['differentLanguage'][page.lang] }}:</em>
-                  <ul>
-                    {% for post in posts %}
-                      {% if post.lang != page.lang %}
-                        <li><a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }} title="
-                        {{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }}
-                        ">{{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }}</a></li>
-                      {% endif %}
-                    {% endfor %}
-                            </ul>
-                      </div>
-                      {% endif %}
-                      {% endif %}
-              </div>
               <div class="
                         post-meta">
                         <div class="post-time">
