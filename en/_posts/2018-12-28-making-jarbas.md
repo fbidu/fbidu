@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Criando Jarbas
+title: Making Jarbas
 date: 2018-12-28
-description: For some big articles you can use table on content
+description: How to create Jarbas?
 toc: true
+lang: en
+lang-ref: criando-o-jarbas
 ---
 
 Above you can see how it looks like. 
