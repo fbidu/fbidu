@@ -1,76 +1,39 @@
-Jekyll Clean Dark
-============
+## Webjeda Hagura Theme
 
-[![Gem Version](https://badge.fury.io/rb/jekyll-clean-dark.svg)](https://badge.fury.io/rb/jekyll-clean-dark)
+[**Demo**](http://webjeda.com/hagura)
 
-This theme was created on top of Jekyll Clean theme by Scotte, you can view the original version in action [on his blog](https://scotte.github.io).
+Hagura is a theme made for blogs with long text paragraphs. Made to be easy on eyes as well with a switchable theme.
 
-* Get it from [github](https://github.com/streetturtle/jekyll-clean-dark).
-* See the [live demo](http://pavelmakhov.com/jekyll-clean-dark).
-* See it [in action on my own blog](http://pavelmakhov.com).
-* Easily [customizable](http://pavelmakhov.com/jekyll-clean-dark/2016/09/customizations)
+Suitable fonts are selected for better readability. Since the theme is created for smartphone reading, the theme is very light and it loads instantly even on a slow data connection.
 
-![preview1](./assets/images/preview1.jpg)
-![preview2](./assets/images/preview2.jpg)
-![preview3](./assets/images/preview3.jpg)
+The theme comes with pre-installed analytics, disqus and html compressor. But make sure you change key parameters in the _config.yml file.
 
-This theme uses some parts of Twitter Bootstrap, which allows it to look nice on a mobile devices using a collapsable nav bar and hiding the
-sidebar.
 
-Some cool features:
 
- - [Disqus](http://disqus.com) as a comments system;
- - [Google Analytics](http://www.google.com/analytics/);
- - [Yandex Metrica](http://metrica.yandex.com);
- - Blog tags - check the section below;
- - [Share buttons](http://pavelmakhov.com/jekyll-clean-dark/2016/09/be-social);
- - [Table Of Content](http://pavelmakhov.com/jekyll-clean-dark/2018/08/table-of-content);
- - Bootstrap 4 and FontAwesome 5!
- - [Stats page](http://pavelmakhov.com/jekyll-clean-dark/stats) - WIP
+## Installation
+* Fork the repository
+* Go to settings and set Github Pages source as master.
+* Your new site should be ready at https://username.github.io/hagura/
 
-All these features could be set up in `_config.yml`. Also you can have social icons which could lead to your social profiles. It uses [font-awesome](http://fontawesome.io/), so you can have any icon you want to any social profile. Out-of-the box it has: LinkedIn, GitHub, StackOverflow, LastFm, Instagram. And you can easily add more by adding new style in `theme.css` and setting it in `_config.yml`.
+Watch my video on instlallation
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/T2nx6tj-ZH4?rel=0" frameborder="0" allowfullscreen></iframe>
 
-Installation
-============
 
-If you don't have your own blog you can clone this repository and put your articles in a `_posts` folder.
-If you already have your own blog then I think you can clone this repository and copy-paste content keeping your `_posts` folder.
 
-After you will have to set up your `_config.yml`
+Default theme will look like this
 
-Gem Installation
-================
+![webjeda gatok jekyll theme](http://webjeda.com/hagura/images/hagura-1.png)
 
-Follow the instructions on the Jekyll [site](https://jekyllrb.com/docs/themes/). Then copy the following files from this repository:
 
- -_config.yml
- - about.md
- - admin.md
- - archive.html
- - feed.xml 
- 
-Blog tags
-=========
+This theme is responsive.
 
-To use this feature you simply will need to create a markdown file for each tag which you are using in you site in **tag** folder. To simplify this procedure there is an [/admin](http://pavelmakhov.com/jekyll-clean-dark/admin.html) page, which outputs the bash command which you just need to run inside **tag** folder of your site. Also don't forget to rerun it when you add a post with new tag.
+![webjeda gatok responsive jekyll theme](http://webjeda.com/hagura/images/hagura-responsive.png)
 
-License
-=======
 
-The content of this theme is distributed and licensed under a
-[Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
 
-    This license lets others distribute, remix, tweak, and build upon your work,
-    even commercially, as long as they credit you for the original creation. This
-    is the most accommodating of licenses offered. Recommended for maximum
-    dissemination and use of licensed materials.
+## Development
+Make changes to the **master** branch and create a pull request. Do not use **gh-pages** branch as it is used to host the theme.
 
-In other words: you can do anything you want with this theme on any site, just please
-provide a link to the original theme on github.
 
-This theme includes the following files which are the properties of their
-respective owners:
-
-* js/bootstrap.min.js - [bootstrap](http://getbootstrap.com)
-* css/bootstrap.min.css - [bootstrap](http://getbootstrap.com)
-* js/jquery.min.js - [jquery](https://jquery.com)
+## License
+MIT License 
