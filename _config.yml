@@ -1,40 +1,31 @@
-### your site title here
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
 
-title: Notas do Bidu em Computação
-baseurl: # name of the repository
-email: felipe@felipevr.com
+# Setup
+title:            Notas do Bidu Sobre Computação
+tagline:          Black Theme for Jekyll
+description:      "Siga-as por sua conta e risco!"
+url:              https://github.com/karloespiritu/blackdoc
+baseurl:          /
+                  # the optional subpath of your site, e.g. "/my-jekyll-site/"
+                  # This will apply to all pages in your Jekyll site.
 
+author:
+  name:           Karlo Espiritu
+  url:            https://twitter.com/karloespiritu
 
+paginate:         5
+# paginate_path:    '/page:num'
+                    # Or '/my-jekyll-site/page:num' if you want to move your index pages
 
-highlighter: rouge
-markdown: kramdown
-### exclude the instructions / write-up in the README.md
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
 
+# Custom vars
+version:            2.0.1
 
-# Tracker
-analytics:
-
-# Comments
-disqus-shortname:
-
-#optimization
-#compress.html
-compress_html:
-  clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
-  comments: ["<!-- ", " -->"]
-  endings: [all]
-  ignore:
-    envs: [local]
-  blanklines: false
-  profile: false
-  startings: []
-  
-
-sass:
- style: compressed
-
-exclude:
-- README.md
-
-
-gems: [jekyll-seo-tag, jekyll-paginate]
+github:
+  repo:             https://github.com/karloespiritu/blackdoc
