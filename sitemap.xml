@@ -47,29 +47,4 @@
     <lastmod>2020-05-13T20:49:47-03:00</lastmod>
   </url>
   
-  <url>
-    <loc>https://domain.example/tags/after/</loc>
-    <lastmod>2020-05-13T20:36:23-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/dark/</loc>
-    <lastmod>2020-05-13T20:36:23-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/categories/hacking/</loc>
-    <lastmod>2020-05-13T20:36:23-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/post/2020-05-13-hooks-black-pylint/</loc>
-    <lastmod>2020-05-13T20:36:23-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/post/welcome/</loc>
-    <lastmod>2020-05-13T19:51:56-03:00</lastmod>
-  </url>
-  
 </urlset>
