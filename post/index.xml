@@ -1,0 +1,99 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Posts on After Dark</title>
+    <link>https://domain.example/post/</link>
+    <description>Recent content in Posts on After Dark</description>
+    <image>
+      <title>Posts on After Dark</title>
+      <link>https://domain.example/post/</link>
+      <url>https://source.unsplash.com/collection/983219/2000x1322</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>After Dark 9.2.2 (Hugo 0.70.0)</generator>
+    <language>en-US</language>
+    <copyright>Copyright &amp;copy; Copyright Owner. Licensed under CC-BY-ND-4.0.</copyright>
+    <lastBuildDate>Tue, 02 Jun 2020 21:59:27 UT</lastBuildDate>
+    <atom:link href="https://domain.example/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autoformatação de Código ― Quando e Como</title>
+      <link>https://domain.example/post/2020-05-13-autoformat-black/</link>
+      <pubDate>Wed, 13 May 2020 23:49:47 UT</pubDate>
+      <guid>https://domain.example/post/2020-05-13-autoformat-black/</guid>
+      <description>TL; DR: Use o índice para ir direto ao ponto que você quer, por exemplo Reformatando com Black!
+ Introdução Fazer um código legível e bonito é algo importante no nosso dia-a-dia, especialmente quando colaboramos com demais colegas. Um código que é mal formatado e mal estruturado é cansativo de ler e difícil de entender o que ele faz.
+A formatação de um código é só um pedaço da história, mas um pedaço muito importante. Ela não é a única responsável pela legibilidade do código ― um projeto mal estruturado, com classe e funções com responsabilidades mal definidas pode até ser bem formatado, mas será difícil de compreender.
+No começo de minha carreira, eu não gostava muito da ideia de formatação automática de código. Por um lado, eu acho que eu era um pouco orgulhoso em relação à isso e não estava afim de perder &amp;ldquo;controle&amp;rdquo;. Por outro lado, mais de 10 anos atrás, essas ferramentas não eram exatamente boas, pelo menos não as que eu conhecia.
+</description>
+      <category domain="https://domain.example/categories/python">Python</category>
+      <category domain="https://domain.example/categories/estilo-de-c%C3%B3digo">Estilo De Código</category>
+      <content:encoded><![CDATA[TL; DR: Use o índice para ir direto ao ponto que você quer, por exemplo Reformatando com Black!
+ Introdução Fazer um código legível e bonito é algo importante no nosso dia-a-dia, especialmente quando colaboramos com demais colegas. Um código que é mal formatado e mal estruturado é cansativo de ler e difícil de entender o que ele faz.
+A formatação de um código é só um pedaço da história, mas um pedaço muito importante. Ela não é a única responsável pela legibilidade do código ― um projeto mal estruturado, com classe e funções com responsabilidades mal definidas pode até ser bem formatado, mas será difícil de compreender.
+No começo de minha carreira, eu não gostava muito da ideia de formatação automática de código. Por um lado, eu acho que eu era um pouco orgulhoso em relação à isso e não estava afim de perder &amp;ldquo;controle&amp;rdquo;. Por outro lado, mais de 10 anos atrás, essas ferramentas não eram exatamente boas, pelo menos não as que eu conhecia.
+Quanto ao primeiro argumento, hoje eu vejo essa resistência à perda do &amp;ldquo;controle&amp;rdquo; como algo meio bobo. A formatação do código por mais importante que seja, não é exatamente o foco do trabalho de um desenvolvedor ou sua finalidade. O centro do nosso trabalho é a abstração de problemas do mundo real para dentro de um algoritmo e a solução desse problema através de ferramentas computacionais, levando em consideração as restrições de projeto que temos.
+Além disso, se nosso código deve seguir um livro de estilo padronizado, qual é o mérito em gastar tempo e esforço para cumprir um padrão definido? Humanos são bons em criar, em fazer coisas novas. É aí que mora nosso diferencial, o que for automatizável, podemos deixar que o computador faça por nós e nos deixe mais livres.
+Já em relação ao segundo argumento, hoje nós temos diversas ferramentas de formatação automática que são cada vez mais robustas. O foco do restante desse artigo é o Black, um formatador automático para Python.
+Black A instalação do Black pode ser feita usando pip install black . Se seu ambiente estiver bem configurado, você conseguirá digitar black --help em seu terminal e ver algumas de suas opções de uso. Caso você queira, pode explorar o funcionamento dele no Black Playground.
+O Black permite diversas formas de execução. Podemos, por exemplo, invocá-lo direto da linha de comando com uma string de código:
+black -c &amp;quot;x=2 * 3&#43;4&amp;quot; E ele te retornará a expressão propriamente formatada, x = 2 * 3 &#43; 4 com os espaços corretos.
+Explorando Erros com Pylint Considere agora esse código, bem mal formatado mas ainda assim é válido:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;#34;&amp;#34;&amp;#34; Módulo que oferece um fatorial iterativo &amp;#34;&amp;#34;&amp;#34; def fatorial(n): result=1 for i in(range(1, n&#43;1)): result*=i return result print( fatorial( 3)) print(fatorial(2 )) print(fatorial(10 ))   Uma forma de avaliarmos a situação desse código é usando o pylint . Esse arquivo está salvo em minha máquina como &amp;ldquo;black_sample01.py&amp;rdquo;. Rodando pylint black_sample01.py , nos dá a seguinte resposta:
+Resultado do PyLint  ************* Module black_sample01 black_sample01.py:2:10: C0326: Exactly one space required around assignment result=1 ^ (bad-whitespace) black_sample01.py:7:0: C0325: Unnecessary parens after &#39;in&#39; keyword (superfluous-parens) black_sample01.py:8:14: C0326: Exactly one space required around assignment result*=i ^^ (bad-whitespace) black_sample01.py:11:5: C0326: No space allowed after bracket print( fatorial( 3)) ^ (bad-whitespace) black_sample01.py:11:16: C0326: No space allowed after bracket print( fatorial( 3)) ^ (bad-whitespace) black_sample01.py:12:21: C0326: No space allowed before bracket print(fatorial(2 )) ^ (bad-whitespace) black_sample01.py:13:0: C0304: Final newline missing (missing-final-newline) black_sample01.py:13:22: C0326: No space allowed before bracket print(fatorial(10 )) ^ (bad-whitespace) black_sample01.py:1:0: C0114: Missing module docstring (missing-module-docstring) black_sample01.py:1:0: C0103: Argument name &amp;quot;n&amp;quot; doesn&#39;t conform to snake_case naming style (invalid-name) black_sample01.py:1:0: C0116: Missing function or method docstring (missing-function-docstring) -------------------------------------------------------------------- Your code has been rated at -3.75/10    Existem erros de parênteses desnecessários, erros de espaço em branco e várias linhas desnecessárias também. Podemos agora explorar o black .
+Verificando Possíveis Mudanças Chamando o black com a flag --check , ele apenas nos conta se o arquivo seria reformatado ou não. Isso é útil para usar em servidores de CI e evitar que arquivos mal formatados subam para a base:
+  $ black --check black_sample01.py would reformat black_sample01.py Oh no! 💥 💔 💥 1 file would be reformatted.    (Mais sobre CI e ferramentas assim em breve!)
+Nós podemos usar a flag --diff para ver as mudanças que seriam feitas:
+black --diff  $ black --diff black_sample01.py --- black_sample01.py	2020-05-20 13:52:23.495800 &#43;0000 &#43;&#43;&#43; black_sample01.py	2020-05-20 13:55:56.786380 &#43;0000 @@ -2, 19 &#43;2, 16 @@ Módulo que oferece um fatorial iterativo &amp;quot;&amp;quot;&amp;quot; def fatorial(n): * result=1 * result = 1 - - - * for i in(range(1, n&#43;1)): * result*=i * for i in range(1, n &#43; 1): * result *= i return result &#43;print(fatorial(3)) &#43;print(fatorial(2)) &#43;print(fatorial(10)) -print( fatorial( 3)) -print(fatorial(2 )) -print(fatorial(10 )) reformatted black_sample01.py All done! ✨ 🍰 ✨ 1 file reformatted.    Honestamente, é meio raro eu usar essas duas flags no meu dia-a-dia. Uma situação em que eu costumo usar a --diff é quando eu estou trabalhando em uma base de código pela primeira vez e estou pensando se vou ou não sugerir uma mudança de estilo. Rodar o --diff me permite estimar o quão trabalhoso seria reformatar a base toda. Já a flag --check eu uso em servidores de CI (Integração Contínua) mesmo.
+Reformatando com Black! E finalmente a reformatação é bem direta. Basta invocar o black sem flags e com o arquivo:
+ $ black black_sample01.py reformatted black_sample01.py All done! ✨ 🍰 ✨ 1 file reformatted. O arquivo em si será modificado:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;#34;&amp;#34;&amp;#34; Módulo que oferece um fatorial iterativo &amp;#34;&amp;#34;&amp;#34; def fatorial(n): result = 1 for i in range(1, n &#43; 1): result *= i return result print(fatorial(3)) print(fatorial(2)) print(fatorial(10))   Usando Black no dia-a-dia Okay, formatamos um arquivo! Mas como garantir isso ao longo do processo? Eu gosto de usar três abordagens diferentes:
+ Direto no meu editor de texto Como um hook pre-commit no git No servidor de CI  A parte do hook e do CI merecem um artigo só pra elas. Quanto ao editor, seja lá qual for seu editor, ele provavelmente já tem uma integração com o Black.
+Ultimamente, tenho usado o VSCode como editor principal. A configuração no VSCode pode ser global ou específica de projeto. Uma vez habilitado, você pode autoformatar seu código apertando CTRL &#43; Shift &#43; I
+Configuração Global No caso da configuração global, abra as configurações em File &amp;gt; Preferences &amp;gt; Settings ou digite CTRL &#43; , . Na barra de busca, digite &amp;ldquo;python formatting provider&amp;rdquo;. Você deverá ver essa opção:
+  Configuração do Black no VSCode   Selecione &amp;ldquo;black&amp;rdquo; na lista e pronto!
+Configuração Local A configuração local de projetos é feita através do arquivo .vscode/settings.json . Basta adicionar nele a chave &amp;quot;python.formatting.provider&amp;quot;: &amp;quot;black&amp;quot; para habilitar o black no seu projeto atual.
+Autoformatar ao salvar ou não? Tudo isso que a gente fez habilitou a invocação manual do Black ― você precisa apertar CTRL &#43; Shift &#43; I para formatar o código. O VSCode e muitos outros editores dão uma outra opção ― autoformatar ao salvar.
+Particularmente, eu deixo essa opção desativada nas configurações globais. Muitas vezes eu trabalho em código que envolve outros colegas, em projetos que não usam black ou que simplesmente possuem um padrão de formatação diferente. Autoformatar nesses casos é ruim.
+Projetos com código &amp;ldquo;feio&amp;rdquo; ou seguindo um padrão de formatação diferente, podem ser problemáticos. Mas mais problemático ainda é quebrar a consistência interna do projeto. Usar CamelCase para dar nomes em variáveis não é comum em Python e o PyLint vai reclamar disso. Porém, se você está trabalhando em um projeto que usa CamelCase para tudo, mantenha a consistência e ― talvez ― proponha a mudança de padrão em um segundo momento. Mas isso é assunto pra outro post!
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Hooks do Git, Pylint, Black &amp; outros confortos</title>
+      <link>https://domain.example/post/2020-05-13-hooks-black-pylint/</link>
+      <pubDate>Wed, 13 May 2020 23:36:23 UT</pubDate>
+      <guid>https://domain.example/post/2020-05-13-hooks-black-pylint/</guid>
+      <description>Here be Content
+Use archetypes to maintain consistency when creating content for Custom Layouts. Like custom layouts Hugo Archetypes may contain templating logic.
+</description>
+      <category domain="https://domain.example/categories/hacking">Hacking</category>
+      <content:encoded><![CDATA[Here be Content
+Use archetypes to maintain consistency when creating content for Custom Layouts. Like custom layouts Hugo Archetypes may contain templating logic.
+ Tip: HAI Manual Summary Split. ]]></content:encoded>
+    </item>
+    <item>
+      <title>Welcome</title>
+      <link>https://domain.example/post/welcome/</link>
+      <pubDate>Wed, 13 May 2020 22:51:56 UT</pubDate>
+      <guid>https://domain.example/post/welcome/</guid>
+      <description>Before continuing please create a post archetype. Archetypes are located within markdown files in the archetypes directory of your site:
+flying-toasters ├── archetypes │ ├── default.md │ └── post.md ├── content If post.md does not exist yet, copy it from the After Dark default:
+$ cd flying-toasters $ cp themes/after-dark/archetypes/post.md archetypes/ Make some changes to post.md then use hugo new to draft a new post:
+$ vi archetypes/post.md # or vim, emacs, nano ... $ hugo new post/totally-twisted.md If hugo server is running with the --navigateToChanged flag your new post will appear automatically in JavaScript-enabled browsers. If you see an empty page you probably need to restart hugo server with the --buildDrafts flag.
+Use archetypes to maintain consistency when creating content for Custom Layouts. Like custom layouts Hugo Archetypes may contain templating logic.
+</description>
+      <category domain="https://domain.example/categories/hacking">Hacking</category>
+      <content:encoded><![CDATA[Before continuing please create a post archetype. Archetypes are located within markdown files in the archetypes directory of your site:
+flying-toasters ├── archetypes │ ├── default.md │ └── post.md ├── content If post.md does not exist yet, copy it from the After Dark default:
+$ cd flying-toasters $ cp themes/after-dark/archetypes/post.md archetypes/ Make some changes to post.md then use hugo new to draft a new post:
+$ vi archetypes/post.md # or vim, emacs, nano ... $ hugo new post/totally-twisted.md If hugo server is running with the --navigateToChanged flag your new post will appear automatically in JavaScript-enabled browsers. If you see an empty page you probably need to restart hugo server with the --buildDrafts flag.
+Use archetypes to maintain consistency when creating content for Custom Layouts. Like custom layouts Hugo Archetypes may contain templating logic.
+ Tip: This message appears below a Manual Summary Split.  The above tip uses a shortcode called Alert. In addition to a number of Shortcodes After Dark provides a number of other Features.
+The Module System, for example, provides a module to display image animations with alpha transparency and something not possible using a GIF:
+If you do not see the above animation, you may install the Fractal Forest module yourself or reinstall After Dark using Quick Install for instant setup.
+Review the Online Help to learn about other useful features such as the Section Menus navigational aid, responsive Post Images, offline Fuzzy Search and more.
+If online help isn&amp;rsquo;t running, go ahead and start it using the corresponding command from the following cheat sheet within your site directory:
+# After Dark scripts ./themes/after-dark/bin/upgrade # check for updates and upgrade ./themes/after-dark/bin/help # start online help docs ./themes/after-dark/bin/install # run the quick installer # Hugo commands hugo # build site with default settings hugo --minify # build with minified sources (hugo 0.47 and above) hugo --config config.prod.toml # build with custom config hugo --templateMetrics # generate template metrics hugo new about.md # generate page content hugo new post/coming-soon.md # generate new post content hugo serve # serve locally with default settings hugo serve --buildDrafts --navigateToChanged # serve with drafts for editing hugo serve --buildExpired # serve locally showing expired content hugo serve --disableLiveReload # serve locally w/live reload disabled hugo list drafts # list draft content hugo list expired # list expired content hugo list future # list future content hugo [serve] --debug # build or serve hugo with debug info hugo [command] --help Thank you for choosing After Dark.
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
