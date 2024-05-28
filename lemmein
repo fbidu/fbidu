@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mkdir -p ~/.ssh
+
+# Put my public keys in the authorized_keys file for the current user
+curl https://github.com/fbidu.keys >> ~/.ssh/authorized_keys
